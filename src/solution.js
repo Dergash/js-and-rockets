@@ -17,7 +17,7 @@ async function fetchSpaceXLaunches() {
 /**
  * Maps launches that had `launch_year` 2018 and at least one NASA payload to missions
  * 
- * @param {Launch[]} launches Launches
+ * @param {Launch[]} launches - Launches
  *
  * @returns {Mission} Missions
  */
@@ -46,7 +46,7 @@ function prepareData(launches) {
  *
  * E.g. payload consumers might be `NASA` or `NASA (CRS)`
  * 
- * @param {https://docs.spacexdata.com/?version=latest#2936485d-1d09-464c-a909-1c2041d67c75} payload 
+ * @param {Payload} payload - Payload 
  */
 function isNASAPayload(payload) {
   return payload.customers.some(customer => customer.includes('NASA'))
@@ -73,7 +73,7 @@ function missionSorter(a, b) {
  * Calls `JSON.stringify` to pretty print the `data` and assigns the result
  * to `innerHTML` of the element on the page with id `out`
  *
- * @param {Object} data JS data to render
+ * @param {Object} data - JS data to render
  */
 function renderData(data) {
   const root = window.document.getElementById('out')
